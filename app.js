@@ -34,22 +34,22 @@ const userSchema = new mongoose.Schema({
 
 const User = new mongoose.model("User",userSchema);
 
-const test_user = new User(
-    {
-        userID: "1",
-    firstName: "John",
-    lastName: "Doe",
-    Email: "john.doe@example.com",
-    Password: "hashed_password",
-    ProfilePicture: "path/to/profile_picture.jpg",
-    Bio: "A brief bio about John...",
-    Company: "XYZ Corp",
-    Position: "Software Engineer",
-    Location: "City, Country",
-    Education: "University of XYZ, Computer Science, Software Engineering, 2020",
-    ConnectionStatus: "Connected"
-}
-);
+// const test_user = new User(
+//     {
+//         userID: "1",
+//     firstName: "John",
+//     lastName: "Doe",
+//     Email: "john.doe@example.com",
+//     Password: "hashed_password",
+//     ProfilePicture: "path/to/profile_picture.jpg",
+//     Bio: "A brief bio about John...",
+//     Company: "XYZ Corp",
+//     Position: "Software Engineer",
+//     Location: "City, Country",
+//     Education: "University of XYZ, Computer Science, Software Engineering, 2020",
+//     ConnectionStatus: "Connected"
+// }
+// );
 
 // test_user.save()
 // .then(() => {
