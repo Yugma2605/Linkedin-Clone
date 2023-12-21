@@ -15,9 +15,25 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
+const url="mongodb+srv://Yugma:LwFQ8DTq1Q1C8WDl@cluster0.msx2imj.mongodb.net/LinkedinDB"
+// mongoose.connect(url).then((data)=>{
+//   console.log('MongoDB Connected');
+// });
 
-mongoose.connect("mongodb+srv://Yugma:LwFQ8DTq1Q1C8WDl@cluster0.msx2imj.mongodb.net/LinkedinDB");
+async function connectToMongoDB() {
+  try {
+    await mongoose.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      // const query=await Article.find();
+      // console.log(query);
+      console.log("Connected to MongoDB Atlas");
+  } 
+  catch{
 
+  }
+};
 const userSchema = new mongoose.Schema({
     userID: String,
     firstName: String,
@@ -60,7 +76,7 @@ const User = new mongoose.model("User",userSchema);
 //     console.log(err);
 // });
 // TODO
-
+connectToMongoDB();
 
 /**
  * @swagger
