@@ -122,16 +122,29 @@ app.get("/users",async function(req,res){
   }
 })
 
-
-app.post("/articles",async function(req,res){
-  const new_article = new article({
-      title: req.body.title,
-      content: req.body.content
-  });
-  new_article.save().then(result => {
-      res.send("Success");
-  });
+.patch("/users/:userid", async (req,res) => {
+  try{
+    const data = await User.updateOne(
+        {userID:req.params.userid},
+        {$set:req.body},
+    );
+    res.send(data);
+}
+catch(error) {
+    console.error(error);
+}
 })
+
+
+// app.post("/articles",async function(req,res){
+//   const new_article = new article({
+//       title: req.body.title,
+//       content: req.body.content
+//   });
+//   new_article.save().then(result => {
+//       res.send("Success");
+//   });
+// })
 
 const options = {
   definition: {
