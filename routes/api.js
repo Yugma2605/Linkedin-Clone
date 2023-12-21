@@ -22,18 +22,13 @@ const url="mongodb+srv://Yugma:LwFQ8DTq1Q1C8WDl@cluster0.msx2imj.mongodb.net/Lin
 
 async function connectToMongoDB() {
   try {
-    await mongoose.connect(url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      // const query=await Article.find();
-      // console.log(query);
-      console.log("Connected to MongoDB Atlas");
-  } 
-  catch{
-
+    await mongoose.connect(url);
+    console.log("Connected to MongoDB Atlas");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
   }
 };
+
 const userSchema = new mongoose.Schema({
     userID: String,
     firstName: String,
@@ -138,6 +133,46 @@ app.get("/users",async function(req,res){
   }
 })
 
+/**
+ * @swagger
+ * /users/{userid}:
+ *   patch:
+ *     summary: Update a user by ID
+ *     parameters:
+ *       - in: path
+ *         name: userid
+ *         required: true
+ *         description: ID of the user to update
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             fieldName: "new value"
+ *     responses:
+ *       '200':
+ *         description: Successful update
+ *         content:
+ *           application/json:
+ *             example:
+ *               n: 1
+ *               nModified: 1
+ *               ok: 1
+ *       '404':
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: User not found
+ *       '500':
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Internal Server Error
+ */
 .patch("/users/:userid", async (req,res) => {
   try{
     const data = await User.updateOne(
