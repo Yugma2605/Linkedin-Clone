@@ -1,4 +1,5 @@
 const Message = require('../models/Message');
+const User = require('../models/User');
 
 async function getMessages(req, res) {
     try {
@@ -23,7 +24,14 @@ async function getMessagesById(req,res){
 
 async function postMessage(req,res){
     try {
-        // console.log(req.body);
+        const { senderID, receiverID } = req.body;
+
+        const senderExists = await User.findById(senderID);
+        const receiverExists = await User.findById(receiverID);
+
+        if (!senderExists || !receiverExists) {
+            return res.status(400).json({ error: 'Invalid sender or receiver ID' });
+        }
         const newMessage = new Message(req.body);
         const savedMessage = await newMessage.save();
         res.status(201).json(savedMessage);
