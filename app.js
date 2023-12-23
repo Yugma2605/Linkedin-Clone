@@ -12,6 +12,7 @@ const connect_database = require('./config/database');
 const app = express();
 
 // Middleware
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 

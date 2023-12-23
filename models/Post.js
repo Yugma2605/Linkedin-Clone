@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-const { v4: uuidv4 } = require('uuid');
 const { Schema } = mongoose;
 
 const postSchema = new mongoose.Schema({
-    PostID : { type: Schema.Types.ObjectId, default: new mongoose.Types.ObjectId(), unique: true },
-    UserID: {
+  PostID: { type: Schema.Types.ObjectId, default: () => new mongoose.Types.ObjectId(), unique: true },
+  userID: {
       type: Schema.Types.ObjectId,
       ref: 'User',
       validate: {
+
           validator: value => {
               return mongoose.Types.ObjectId.isValid(value) || typeof value === 'string';
           },

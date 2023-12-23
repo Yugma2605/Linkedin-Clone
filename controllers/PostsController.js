@@ -30,7 +30,7 @@ async function PostPost(req,res){
         return res.status(400).json({ message: 'userID and content are required.' });
     }
 
-    const newPost = new Post({ content, userID, });
+    const newPost = new Post({ content, userID });
     try {
         const savedPost = await newPost.save();
         res.status(201).json(savedPost);
