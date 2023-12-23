@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const PostController = require('../controllers/PostsController');
+const CommentController = require('../controllers/CommentController');
+
+
+
 
 /**
  * @swagger
@@ -19,7 +22,7 @@ const PostController = require('../controllers/PostsController');
  *               - id: 2
  *                 name: Jane Doe
  */
-router.get('/:id?', PostController.getPost);
+router.get('/:PostID?', CommentController.GetComments);
 
 /**
  * @swagger
@@ -44,7 +47,7 @@ router.get('/:id?', PostController.getPost);
  *               name: John Doe
  *               email: john@example.com
  */
-router.post('/', PostController.PostPost);
+router.post('/', CommentController.PostComments);
 
 /**
  * @swagger
@@ -87,6 +90,6 @@ router.post('/', PostController.PostPost);
  *             example:
  *               error: Internal Server Error
  */
-router.delete('/:id?', PostController.DeletePost);
+router.delete('/:commentID', CommentController.DeleteComments);
 
 module.exports = router;
