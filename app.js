@@ -6,6 +6,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/PostRoutes');
+const commentRoutes = require('./routes/CommentRoutes');
 
 const connect_database = require('./config/database');
 const app = express();
@@ -50,6 +51,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // Routes
 app.use('/users', userRoutes);
 app.use('/posts',postRoutes);
+app.use('/comment',commentRoutes);
+
 
 // Start the server
 const port = process.env.PORT || 3000;
