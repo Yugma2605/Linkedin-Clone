@@ -6,6 +6,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/PostRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 const commentRoutes = require('./routes/CommentRoutes');
 
 const connect_database = require('./config/database');
@@ -14,6 +15,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
 
 connect_database.connectToMongoDB();
@@ -52,6 +54,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // Routes
 app.use('/users', userRoutes);
 app.use('/posts',postRoutes);
+app.use('/messages',messageRoutes);
 app.use('/comment',commentRoutes);
 
 
