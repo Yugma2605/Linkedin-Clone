@@ -89,4 +89,47 @@ router.post('/', userController.createUser);
  */
 router.patch('/:userid', userController.updateUser);
 
+/**
+ * @swagger
+ * /users/{userid}:
+ *   delete:
+ *     summary: Delete a user by ID
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: userid
+ *         required: true
+ *         description: ID of the user to delete
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             fieldName: "new value"
+ *     responses:
+ *       '200':
+ *         description: Successful delete
+ *         content:
+ *           application/json:
+ *             example:
+ *               n: 1
+ *               nModified: 1
+ *               ok: 1
+ *       '404':
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: User not found
+ *       '500':
+ *         description: Internal Server Error
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Internal Server Error
+ */
+router.delete('/:userid',userController.deleteUser);
+
 module.exports = router;

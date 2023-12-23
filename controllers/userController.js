@@ -12,6 +12,7 @@ async function getAllUsers(req, res) {
 
 async function createUser(req, res) {
   try {
+    console.log(req.body);
     const newUser = new User(req.body);
     await newUser.save();
     res.status(201).json(newUser);
@@ -34,4 +35,14 @@ async function updateUser(req, res) {
   }
 }
 
-module.exports = { getAllUsers, createUser, updateUser };
+async function deleteUser(req,res){
+  try {
+    await User.deleteOne({userID:req.params.userid}).then((data)=>{
+        console.log(data);
+    });
+} catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+} 
+}
+module.exports = { getAllUsers, createUser, updateUser, deleteUser};
