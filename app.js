@@ -6,6 +6,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/PostRoutes');
+const connectionRoutes = require('./routes/ConnectionRoutes.js');
 const messageRoutes = require('./routes/messageRoutes');
 const commentRoutes = require('./routes/CommentRoutes');
 
@@ -54,6 +55,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // Routes
 app.use('/users', userRoutes);
 app.use('/posts',postRoutes);
+
+app.use("/connection",connectionRoutes);
 app.use('/messages',messageRoutes);
 app.use('/comment',commentRoutes);
 
