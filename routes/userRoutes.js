@@ -7,7 +7,7 @@ const userController = require('../controllers/userController');
  * /users:
  *   get:
  *     summary: Get all users
- *     tags = [Users]
+ *     tags: [Users]
  *     responses:
  *       '200':
  *         description: Successful response
@@ -26,7 +26,7 @@ router.get('/', userController.getAllUsers);
  * /users:
  *   post:
  *     summary: Create a new user
- *     tags = [Users]
+ *     tags: [Users]
  *     requestBody:
  *       required: true
  *       content:
@@ -51,7 +51,7 @@ router.post('/', userController.createUser);
  * /users/{userid}:
  *   patch:
  *     summary: Update a user by ID
- *     tags = [Users]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: userid
