@@ -44,11 +44,11 @@ async function createUser(req, res) {
           return res.status(400).json({ error: 'Invalid email format' });
       }
 
-      const existingUser = await User.findOne({ email });
+      const existingUser = await User.findOne({email});
       if (existingUser) {
           return res.status(400).json({ error: 'Email is already registered' });
       }
-
+      console.log(req.body);
       const newUser = new User(req.body);
       await newUser.save();
       res.status(201).json(newUser);
@@ -79,7 +79,7 @@ async function deleteUser(req, res) {
           return res.status(400).json({ error: 'UserID is required in parameters' });
       }
 
-      const existingUser = await User.findById(userID);
+      const existingUser = await User.findOne({ userID: userID });
       if (!existingUser) {
           return res.status(404).json({ error: 'User not found' });
       }
