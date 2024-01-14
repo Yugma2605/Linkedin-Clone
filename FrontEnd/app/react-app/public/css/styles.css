@@ -1,0 +1,115 @@
+nav {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  height: fit-content;
+}
+
+.navbar-text {
+  font-size: 14px; /* Adjust font size for better alignment */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.navbar-expand-sm{
+  height: 0%;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.input-icons i {
+  position: absolute;
+  color: #333;
+  margin: 10px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.search-input {
+  padding: 10px;
+  padding-right: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #0077b5;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.search-icon.active {
+  opacity: 1;
+}
+
+.input-icons {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  /* transform: translateY(-50%); */
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+
+i {
+  display: block; /* Make the icon a block element */
+  margin-bottom: 5px; /* Add space between the icon and text */
+}
+
+
+ul{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 700px;
+  padding-right: 50px;
+  list-style: none;
+  align-content: center;
+  
+}
+li{
+  font-size: 18px;
+}
+
+input{
+  padding-left: 500px;
+  background-image: url('https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid');
+  background-repeat: no-repeat;
+  background-position: left center;
+}
