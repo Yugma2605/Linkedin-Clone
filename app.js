@@ -6,9 +6,16 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/PostRoutes');
+<<<<<<< HEAD
 const messageRoutes = require('./routes/messageRoutes');
 const commentRoutes = require('./routes/CommentRoutes');
 const connectionRoutes = require('./routes/ConnectionRoutes.js');
+=======
+const connectionRoutes = require('./routes/ConnectionRoutes.js');
+const messageRoutes = require('./routes/messageRoutes');
+const commentRoutes = require('./routes/CommentRoutes');
+
+>>>>>>> 250680482a153604c19a3763be54f75220b9e292
 const connect_database = require('./config/database');
 const app = express();
 
@@ -54,10 +61,19 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // Routes
 app.use('/users', userRoutes);
 app.use('/posts',postRoutes);
+<<<<<<< HEAD
+=======
+
+app.use("/connection",connectionRoutes);
+>>>>>>> 250680482a153604c19a3763be54f75220b9e292
 app.use('/messages',messageRoutes);
 app.use('/comment',commentRoutes);
 app.use("/connection",connectionRoutes);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 250680482a153604c19a3763be54f75220b9e292
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
